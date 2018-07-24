@@ -1,0 +1,70 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ * Author:  etudiant
+ * Created: 28 mai 2018
+ */
+
+CREATE TABLE IF NOT EXISTS `DATE` (
+  `dateD` date NOT NULL,
+
+  PRIMARY KEY (`dateD`)
+);
+
+CREATE TABLE IF NOT EXISTS `MENU` (
+    `idM` int(10) NOT NULL,
+    `dateD` date NOT NULL,
+    `Com` varchar(20),
+
+  PRIMARY KEY (`idM`),
+    Foreign key (`dateD`) references `DATE`(`dateD`)
+);
+
+CREATE TABLE IF NOT EXISTS `ENTREE` (
+  `idE` int(10) NOT NULL,
+  `libelleE` varchar(20) NOT NULL,
+  `idM` int(10) NOT NULL,
+
+  PRIMARY KEY (`idE`),
+    Foreign key (`idM`) references `MENU`(`idM`)
+);
+
+CREATE TABLE IF NOT EXISTS `PLAT` (
+  `idP` int(10) NOT NULL,
+  `libelleP` varchar(20) NOT NULL,
+    `idM` int(10) NOT NULL,
+
+  PRIMARY KEY (`idP`),
+  Foreign key (`idM`) references `MENU`(`idM`)
+);
+
+CREATE TABLE IF NOT EXISTS `DESSERT` (
+  `idD` int(10) NOT NULL,
+  `libelleD` varchar(20) NOT NULL,
+    `idM` int(10) NOT NULL,
+
+  PRIMARY KEY (`idD`),
+  Foreign key (`idM`) references `MENU`(`idM`)
+);
+
+CREATE TABLE IF NOT EXISTS `RESERVATION` (
+  `numR` int(10) NOT NULL,
+  `nbPerso` int(10) NOT NULL,
+    `nomR` varchar(20) NOT NULL,
+    `dateD` date NOT NULL,
+
+  PRIMARY KEY (`numR`),
+   Foreign key (`dateD`) references `DATE`(`dateD`)
+);
+
+CREATE TABLE IF NOT EXISTS `ADMIN` (
+  `idA` int(10) NOT NULL,
+  `nomA` varchar(20) NOT NULL,
+    `mdp` varchar(20) NOT NULL,
+    `mail` varchar(30) NOT NULL,
+
+  PRIMARY KEY (`idA`)
+)
