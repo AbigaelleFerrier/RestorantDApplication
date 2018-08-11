@@ -12,6 +12,10 @@ body {
     background: #0054b3;
 }
 
+.hr {
+    background-color: #fff;
+}
+
 
 #background {
     background-image: url("../img/bg.jpg");
@@ -271,11 +275,10 @@ body {
 article#center {
     margin: auto;
     text-align: center;
-    background: rgba(39, 136, 222, 0.7);
-    width: 95%;
-    margin-top: 5em;
+    background: rgba(35, 35, 35, 0.7);
+    width: 100%;
+    margin-top: 0em;
     padding: 3em;
-    border-radius: 20px;
 }
 
 input[type="text"], input[type="password"] {
@@ -287,16 +290,61 @@ input[type="text"], input[type="password"] {
 .btn-bg {
     background: #fff;
     min-width: 30%;
+    color: #000 !important;
 }
 
 .btn-bg:hover {
-    background: #ececec;
+    background: #28a8e2 !important;
+    color: #fff !important;
+}
+
+.btn-margin {
+    margin-top: 1em;
+    margin-bottom: 3em;
+
 }
 
 
+/* MAIL */
 
+#clientList {
+}
 
+.btn-sendMail {
+    min-width: 100%;
+    max-width: max-content;
+}
 
+.mail-menu {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.mail-editeur {
+    background-color: #fff;
+    color: #000;
+}
+
+.displayClient {
+    margin-bottom: 1em;
+    background: #35abffc2;
+    padding: 0.5em;
+    -webkit-box-flex: 0;
+    margin: 2%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 20%;
+    max-width: 20%;
+    cursor: pointer;
+}
+
+.mailSelectClientOn {
+    border-left : solid 10px;
+    border-radius: 0px 20px 0px 0px;
+}
+
+.mailSelectClientOff {
+    border-left: none;
+    border-radius: none;
+}
 
 
 /* ANNIMATion */

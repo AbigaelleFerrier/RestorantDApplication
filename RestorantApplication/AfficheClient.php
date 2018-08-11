@@ -14,7 +14,9 @@
                         "<br> Adresse mail : " . $row['mail'] .
                         "<br> Téléphone : " . $row['Tel'] .
                         "<br> Est venu(e) : " . $row['fidelite']. " fois <br>";
-                ?> <a href="FormModifCli.php?id=<?php echo $row['idCli']; ?>"> Modifier </a> <br/> <br> <?php
+                ?> <a class="btn btn-bg btn-margin" href="FormModifCli.php?id=<?php echo $row['idCli']; ?>"> Modifier </a><br>
+                    <hr> 
+                <?php
             }
         } catch (Exception $ex) {
             die('Erreur : '.$ex->getMessage());

@@ -28,6 +28,11 @@ try {
     $mail->setFrom('Test@asheart.fr', 'Magasin Général');
     $mail->addAddress($rowClt['mailClient'] , $rowClt['nomClient']. ' '. $rowClt['prenomClient'] );     // Add a recipient $mailVers
     
+    if (array_key_exists('inputpresent', $_POST)){
+        foreach($_POST['inputpresent'] as $Email) {
+            
+        }
+    }
 
     //Attachments
     //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments

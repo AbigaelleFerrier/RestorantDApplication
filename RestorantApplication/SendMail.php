@@ -10,21 +10,11 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
     ?>    
 
         <script type="text/javascript">
-            function Req(val){
+           
+            function ReqMailChoix(val){
                 var xhr = new XMLHttpRequest();
                                 
-                xhr.open("GET", "FormEnvoieMail.php?num="+ val);
-                xhr.onreadystatechange = function(){
-                    if (xhr.readyState == 4 && xhr.status == 200){
-                        document.getElementById('List').innerHTML = xhr.responseText;
-                    }
-                };
-                xhr.send();
-            }
-            function Req2(val){
-                var xhr = new XMLHttpRequest();
-                                
-                xhr.open("GET", "FormEnvoieMail2.php?num="+ val);
+                xhr.open("GET", "FormEnvoieMail2.php?date="+ val);
                 xhr.onreadystatechange = function(){
                     if (xhr.readyState == 4 && xhr.status == 200){
                         document.getElementById('List2').innerHTML = xhr.responseText;
@@ -32,6 +22,7 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
                 };
                 xhr.send();
             }
+
         </script>
     </head>
 <body>
@@ -47,42 +38,49 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
                 <div class="container" style="padding: 0em">
                     <div class="row" style="padding: 0em">
                         <div class="col-12">
-                            <div id="ResMenu">
+                            <div>
                                 <article id="center">
-                                    <wysiwyg onkeyup="var sortie = document.getElementById('sortie'); var form = document.getElementById('tinymce'); sortie.innerHTML = form.innerHTML;"></wysiwyg>
+
+                                    <h1>Gestionaire d'envoie de mail :</h1>
+
+                                    <form method="post" name="mail" action="testMail.php">
+                                        <div class="row" style="padding: 2em 1em; margin: 0em" >
+
+                                            <div class="col-9" style="margin-bottom: 2em;">
+                                                <!-- EDITEUR VISUEL -->
+                                                <wysiwyg></wysiwyg>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="col-12">
+                                                    <a class="btn btn-bg btn-sendMail" id="DC1" style="margin-bottom: 15px;" onclick="displayClient(false)"><span style="font-weight: 900; color: #5bc30d;"><i class="fas fa-check-circle"></i></span> Envoyer à tous les clients</a><br>
+                                                    <a class="btn btn-bg btn-sendMail" id="DC2" style="margin-bottom: 15px;" onclick="displayClient(true)">Envoyer à un ou plusieur clients</a>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <a class="btn btn-bg btn-sendMail" id="DM1" style="margin-bottom: 15px;" onclick="displayMenu(false)"><span style="font-weight: 900; color: #5bc30d;"><i class="fas fa-check-circle"></i></span> Tous les menus</a><br>
+                                                    <a class="btn btn-bg btn-sendMail" id="DM2" style="margin-bottom: 15px;" onclick="displayMenu(true)">Un menu en particulier</a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-9" id="List2"></div>
+                                            <div class="col-3">
+                                                <div id="fichier"><input type="file" id="cheminFile" class="btn btn-bg btn-margin" style="width: 90%" required></div>
+                                                <div id="menuDisplay"></div>
+                                            </div>
+                                            <hr>
+                                            <div class="col-9" id="clientList"></div>
+                                            
+
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-bg btn-margin">Envoyer</button>
+                                            </div>
+                                            
+
+                                            
+                                        </div>
+                                    </form>
+                                    
                                 </article>
-
-                                <div style="background: rgba(75, 75, 75, 0.5); margin: 3em 0em 1em 0em; padding: 5em;  border: solid #63636387 1px;" id="sortie">
-                                </div>
-                                <!--
-                                    <article id="center"> 
-                                        <a class="button-pannel" href="PannelReservAdmin.php"> Revenir en arrière </a> 
-                                        
-                                        <form method="post" name="formulaire" action="envoieMail.php">
-                                            
-                                                <input type="checkbox" name ="destinateut"  value="1" id="1" onclick="Req(this.value);"/> <label for="Tous">Envoyer à tous les clients</label>
-                                                <br/>
-                                                <input type="checkbox" name ="destinateur"  value="0" id="0" onclick="Req(this.value);"/> <label for="Seul">Envoyer à un seul client</label>
-                                                <br/> 
-                                                
-                                                <input type="checkbox" name ="nbMenu"       value="1" id="1" onclick="Req2(this.value);"/> <label for="Tous">Tous les menus</label>
-                                                <br/>
-                                                <input type="checkbox" name ="nbMenu"       value="0" id="0" onclick="Req2(this.value);"/> <label for="Seul">Un menu en particulier</label>
-                                                <br/> 
-                                            
-                                                <div id="List" ></div>
-                                                <div id="List2"></div>-->
-                                                
-                                            <!-- 
-                                                <label for='Dat'> Envoyer le menu du :      </label>
-                                                <input type="text" name="Dat" required /> <br/>
-                                            
-                                                
-
-                                            <input type="submit" value="Valider"/> <br/>
-                                        </form>
-                                    </article>
-                                -->
                             </div>
                         </div>
                     </div>

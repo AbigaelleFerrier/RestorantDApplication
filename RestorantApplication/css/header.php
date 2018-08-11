@@ -28,6 +28,6 @@
         <script>
             tinymce.init({  
                 selector:'wysiwyg',
-                plugins: "preview bbcode"
+                plugins: "preview"
             });
         </script>

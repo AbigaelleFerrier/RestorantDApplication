@@ -80,7 +80,7 @@
                             
                                     <center id="calendrier" >
                                         <p>Rechercher une date</p>
-                                        <input id="rechercherCalendrier" type="date" class="btn" value="<?php echo(date('Y-m-d'))?>" onblur="Req(this.value)" style="margin-bottom: 1em; min-width: 30%;"><br>
+                                        <input id="rechercherCalendrier" type="date" class="btn" value="<?php echo(date('Y-m-d'))?>" onchange="Req(this.value)" style="margin-bottom: 1em; min-width: 30%;"><br>
                                         
                                     </center>
                                 </article>

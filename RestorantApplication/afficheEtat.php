@@ -27,10 +27,10 @@ if(isset($_SESSION['user']) && ($_SESSION['user']== 'AdminReserv')) {
                  while($row3 = $traitement3->fetch()){
                     echo '<p>'; 
                     echo "Nom du client : ". $row3['NomPrenom'] ."<br/> Nombre de personne attendu : " . $row3['nbPerso'] . " <br/>Etat : " . $row3['etatReserv'];
-                    ?><br> <a class="btn btn-bg" href="FormModifReservCli.php?id=<?php echo $row3['numR']; ?>"> Modifier </a> <br/> <?php
+                    ?><br> <a class="btn btn-bg btn-margin" href="FormModifReservCli.php?id=<?php echo $row3['numR']; ?>"> Modifier </a> <br/> <?php
                     echo '</p>';
                  } ?> <form method="post" name="formulaire" action="ModifCom.php?id=<?php echo $row['idM'];?>"><?php
-                 echo "Note(s) : " ?> <br><textarea type="text" cols="50" name="Com"><?php echo $row['Com'];?> </textarea>  <br><input type="submit" value="Modifier"/> <br/> <?php
+                 echo "Note(s) : " ?> <br><textarea type="text" cols="50" name="Com"><?php echo $row['Com'];?> </textarea>  <br><input type="submit" class="btn btn-bg" value="Modifier"/> <br/> <?php
                  
                 
         }
