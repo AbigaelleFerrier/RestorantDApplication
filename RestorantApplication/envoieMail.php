@@ -1,5 +1,6 @@
 <?php
 
+/*
 header("Content-Type: text/plain");
 
 // Import PHPMailer classes into the global namespace
@@ -19,18 +20,18 @@ try {
     $mail->isSMTP();                                        // Set mailer to use SMTP
     $mail->Host = 'auth.smtp.1and1.fr';                     // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                                 // Enable SMTP authentication
-    $mail->Username = 'test@asheart.fr';                  // SMTP username
-    $mail->Password = '123456789';                        // SMTP password
+    $mail->Username = 'test@asheart.fr';                    // SMTP username
+    $mail->Password = '123456789';                          // SMTP password
     $mail->SMTPSecure = 'ssl';                              // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 465;                                      // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('Test@asheart.fr', 'Magasin Général');
+    $mail->setFrom('Test@asheart.fr', 'Restorant d\'Application - Lycéé Emile Peytavin');
     $mail->addAddress($rowClt['mailClient'] , $rowClt['nomClient']. ' '. $rowClt['prenomClient'] );     // Add a recipient $mailVers
     
-    if (array_key_exists('inputpresent', $_POST)){
+    if (isset($_SESSION)){
         foreach($_POST['inputpresent'] as $Email) {
-            
+            $mail->addAddress($Email);   
         }
     }
 
@@ -49,3 +50,4 @@ try {
 } catch (Exception $e) {
     echo '<script>alert("Message could not be sent. Mailer Error: ', $mail->ErrorInfo . '");</script>';
 }
+*/

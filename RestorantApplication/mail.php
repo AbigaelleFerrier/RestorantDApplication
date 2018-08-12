@@ -11,7 +11,7 @@
     /* Fonts and Content */
     #mailPeytavin body, td { font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif; font-size:14px; }
     #mailPeytavin body { /* BG */ background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%); margin: 0; padding: 0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
-    mailPeytavin h2{ padding-top:12px; /* ne fonctionnera pas sous Outlook 2007+ */color:#0E7693; font-size:22px; }
+    mailPeytavin h2{ padding-top:12px; /* ne fonctionnera pas sous Outlook 2007+ */color:#0E7693; font-size:22px; } 
     #logo h1,h3 {
         text-align: center;
         font-family: 'Abel', sans-serif;
