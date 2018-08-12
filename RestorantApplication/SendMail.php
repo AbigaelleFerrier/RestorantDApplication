@@ -48,7 +48,10 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
 
                                             <div class="col-9" style="margin-bottom: 2em;">
                                                 <!-- EDITEUR VISUEL -->
-                                                <wysiwyg></wysiwyg>
+                                                <wysiwyg>
+                                                    <h1>Un Titre</h1>
+                                                    <p>Du Texte en vrac</p>
+                                                </wysiwyg>
                                             </div>
                                             <div class="col-3">
                                                 <div class="col-12">
