@@ -27,28 +27,7 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
     </head>
 
 <?php
-	//////////////////////////////////////////////////
-	//			GESTION AFFICHAGE MAIL 				//
-	//////////////////////////////////////////////////
-	
-	/*
-
-	if (array_key_exists('inputpresent', $_POST)){
-		foreach($_POST['inputpresent'] as $Email) {
-        	$Email;	
-    	}
-	}
-	else {
-		
-	}
-           
-    
-
-	echo "<p>" . $_POST['mce_0'] . "</p>" ; 
-	*/
-
-	$_SESSION['Post-Mail'] = $_POST;
-	
+	$_SESSION['Post-Mail'] = $_POST;	
 ?>
 
 

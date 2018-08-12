@@ -17,7 +17,7 @@
         font-family: 'Abel', sans-serif;
     }    
     #logo h1 {
-        font-size: 250%;
+        font-size: 250%; 
     }
     #logo h3 {
         font-size: 1.5em;
@@ -93,8 +93,8 @@
                             </tr>
 
                             <!-- contenu -->
-                            <tr class="content">
-                                <td class="w640" width="1080" bgcolor="#ffffff">
+                            <tr class="content" style="color: #000 !important">
+                                <td class="w640" width="1080" bgcolor="#ffffff" >
                                     <table class="w640" width="1080" cellpadding="0" cellspacing="0" border="0">
                                         <tbody>
                                             <tr>

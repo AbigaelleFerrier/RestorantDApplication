@@ -119,6 +119,6 @@ function displayMenu(value) {
 
 function popMailverif() {
     document.getElementById('verifPopMail').innerHTML = '<h2 style="color:#fff;"> Vous êtes sûr ?</h2>'
-    +' <div class="col-12"><a href="mail.php"><button class="btn btn-bg" style="margin-bottom:0.5em">Oui</button></a></div>'
+    +' <div class="col-12"><a href="envoieMail.php"><button class="btn btn-bg" style="margin-bottom:0.5em">Oui</button></a></div>'
     +' <div class="col-12"><a href="SendMail.php"><button class="btn btn-bg" style="margin-bottom:3em">Non</button></a></div>';
 }

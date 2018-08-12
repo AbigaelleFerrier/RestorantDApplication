@@ -1,5 +1,10 @@
 <?php
+session_start();
 
+if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
+    // On affiche alors le panel d'admin, soit tout le code ci-dessous
+
+    var_dump($_SESSION);
 /*
 header("Content-Type: text/plain");
 
@@ -51,3 +56,4 @@ try {
     echo '<script>alert("Message could not be sent. Mailer Error: ', $mail->ErrorInfo . '");</script>';
 }
 */
+}
