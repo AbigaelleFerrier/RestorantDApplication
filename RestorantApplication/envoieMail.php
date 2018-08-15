@@ -5,6 +5,7 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
     // On affiche alors le panel d'admin, soit tout le code ci-dessous
 
     var_dump($_SESSION);
+    var_dump($_SESSION['Post-Mail']['files']);
 /*
 header("Content-Type: text/plain");
 
@@ -17,38 +18,47 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 include 'inc/contenuMailCommande.inc.php';
 
-$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+$mail = new PHPMailer(true);                            // Passing `true` enables exceptions
 try {
-    //Server settings
-    $mail->CharSet = 'UTF-8';
-    $mail->SMTPDebug = 0;                                   // Enable verbose debug output
-    $mail->isSMTP();                                        // Set mailer to use SMTP
-    $mail->Host = 'auth.smtp.1and1.fr';                     // Specify main and backup SMTP servers
-    $mail->SMTPAuth = true;                                 // Enable SMTP authentication
-    $mail->Username = 'test@asheart.fr';                    // SMTP username
-    $mail->Password = '123456789';                          // SMTP password
-    $mail->SMTPSecure = 'ssl';                              // Enable TLS encryption, `ssl` also accepted
-    $mail->Port = 465;                                      // TCP port to connect to
+    // Server settings
+        $mail->CharSet      = 'UTF-8';
+        $mail->SMTPDebug    = 0;                            // Enable verbose debug output
+        $mail->isSMTP();                                    // Set mailer to use SMTP
+        $mail->Host         = 'auth.smtp.1and1.fr';         // Specify main and backup SMTP servers
+        $mail->SMTPAuth     = true;                         // Enable SMTP authentication
+        $mail->Username     = 'test@asheart.fr';            // SMTP username
+        $mail->Password     = '123456789';                  // SMTP password
+        $mail->SMTPSecure   = 'ssl';                        // Enable TLS encryption, `ssl` also accepted
+        $mail->Port         = 465;                          // TCP port to connect to
 
-    //Recipients
-    $mail->setFrom('Test@asheart.fr', 'Restorant d\'Application - Lycéé Emile Peytavin');
-    $mail->addAddress($rowClt['mailClient'] , $rowClt['nomClient']. ' '. $rowClt['prenomClient'] );     // Add a recipient $mailVers
-    
-    if (isset($_SESSION)){
-        foreach($_POST['inputpresent'] as $Email) {
-            $mail->addAddress($Email);   
+    // Recipients //
+        $mail->setFrom('Test@asheart.fr', 'Restorant d\'Application - Lycéé Emile Peytavin');
+
+        $mail->addAddress($rowClt['mailClient'] , $rowClt['nomClient']. ' '. $rowClt['prenomClient'] );     // Add a recipient $mailVers
+        
+        if (isset($_SESSION['Post-Mail']['ClientSelectionner'])){
+            foreach($_SESSION['Post-Mail']['ClientSelectionner'] as $Email) {
+                $mail->addAddress($Email);   
+            }
         }
-    }
+        else {
+            $req = "SELECT * FROM `client` WHERE `mail` IS NOT NULL ORDER BY `fidelite` DESC";
+            $traitement = $connect ->prepare($req);
+            $traitement -> execute();
+        }
 
-    //Attachments
-    //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-    //Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Votre commande a été enregistrée';
-    $mail->Body    = $bodyMessageHTML;
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    // Attachments //
+        if(isset($_SESSION['Post-Mail']['files'])) {
+            $mail->addAttachment($_SESSION['Post-Mail']['files']['cheminFile']['tmp_name'], 'Menu_du_Restaurant_d\'Application_-_Lycéé_Emile_Peytavin');
+        }
+        //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        //    // Optional name
+        
+    //Content //
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = 'Votre commande a été enregistrée';
+        $mail->Body    = $bodyMessageHTML;
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
     echo '<script>alert("Mail envoyé");</script>';

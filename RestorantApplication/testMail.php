@@ -4,10 +4,13 @@
         <?php
             include 'css/header.php';
 
-if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
-    // On affiche alors le panel d'admin, soit tout le code ci-dessous
-    
-    ?>    
+            if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
+                // On affiche alors le panel d'admin, soit tout le code ci-dessous
+                
+                $_SESSION['Post-Mail']          = $_POST;
+                $_SESSION['Post-Mail']['files'] = $_FILES;  
+
+            ?>    
 
         <script type="text/javascript">
            
@@ -26,9 +29,6 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
         </script>
     </head>
 
-<?php
-	$_SESSION['Post-Mail'] = $_POST;	
-?>
 
 
 

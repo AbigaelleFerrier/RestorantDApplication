@@ -43,7 +43,7 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
 
                                     <h1>Gestionaire d'envoie de mail :</h1>
 
-                                    <form method="post" name="mail" action="testMail.php">
+                                    <form enctype="multipart/form-data" method="post" name="mail" action="testMail.php">
                                         <div class="row" style="padding: 2em 1em; margin: 0em" >
 
                                             <div class="col-9" style="margin-bottom: 2em;">
@@ -67,7 +67,9 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
 
                                             <div class="col-9" id="List2"></div>
                                             <div class="col-3">
-                                                <div id="fichier"><input type="file" id="cheminFile" class="btn btn-bg btn-margin" style="width: 90%" required></div>
+                                                <div id="fichier">
+                                                    <input type="file" name="cheminFile" id="cheminFile" class="btn btn-bg btn-margin" style="width: 90%" required>
+                                                </div>
                                                 <div id="menuDisplay"></div>
                                             </div>
                                             <hr>

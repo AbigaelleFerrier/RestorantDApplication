@@ -112,7 +112,7 @@ function displayMenu(value) {
 
         document.getElementById('menuDisplay').innerHTML = "";
         document.getElementById('List2').innerHTML       = "";
-        document.getElementById('fichier').innerHTML     = '<input type="file" id="cheminFile" class="btn btn-bg btn-margin" style="width: 90%" required>';
+        document.getElementById('fichier').innerHTML     = '<input type="file" name="cheminFile" id="cheminFile" class="btn btn-bg btn-margin" style="width: 90%" required>';
     }
 
 }

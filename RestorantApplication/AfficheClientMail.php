@@ -15,7 +15,7 @@
 
             while($row = $traitement->fetch()) {
                 echo '<div id="div'. $row['idCli'] .'" class="col-3 displayClient" onclick="mailSelectClient('. $row['idCli'] .')">'.
-                        '<p>Nom : ' . $row['NomPrenom'] . '  <input value="'. $row['mail'] .'" name="inputpresent[]" type="checkbox" id="input'. $row['idCli'] .'" style="display:  none;">'.
+                        '<p>Nom : ' . $row['NomPrenom'] . '  <input value="'. $row['mail'] .'" name="ClientSelectionner[]" type="checkbox" id="input'. $row['idCli'] .'" style="display:  none;">'.
                         "<br> Est venu(e) : " . $row['fidelite'] . " fois<br></p>" .
                      "</div>";
             }
