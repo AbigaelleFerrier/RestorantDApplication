@@ -6,6 +6,7 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
 
     var_dump($_SESSION);
     var_dump($_SESSION['Post-Mail']['files']);
+
 /*
 header("Content-Type: text/plain");
 
@@ -29,13 +30,11 @@ try {
         $mail->Username     = 'test@asheart.fr';            // SMTP username
         $mail->Password     = '123456789';                  // SMTP password
         $mail->SMTPSecure   = 'ssl';                        // Enable TLS encryption, `ssl` also accepted
-        $mail->Port         = 465;                          // TCP port to connect to
+        $mail->Port         =  465;                         // TCP port to connect to
 
     // Recipients //
         $mail->setFrom('Test@asheart.fr', 'Restorant d\'Application - Lycéé Emile Peytavin');
-
-        $mail->addAddress($rowClt['mailClient'] , $rowClt['nomClient']. ' '. $rowClt['prenomClient'] );     // Add a recipient $mailVers
-        
+   
         if (isset($_SESSION['Post-Mail']['ClientSelectionner'])){
             foreach($_SESSION['Post-Mail']['ClientSelectionner'] as $Email) {
                 $mail->addAddress($Email);   
@@ -45,19 +44,21 @@ try {
             $req = "SELECT * FROM `client` WHERE `mail` IS NOT NULL ORDER BY `fidelite` DESC";
             $traitement = $connect ->prepare($req);
             $traitement -> execute();
+
+            while($row = $traitement->fetch()) {
+                $mail->addAddress($row['mail']);
+            }
         }
 
     // Attachments //
         if(isset($_SESSION['Post-Mail']['files'])) {
             $mail->addAttachment($_SESSION['Post-Mail']['files']['cheminFile']['tmp_name'], 'Menu_du_Restaurant_d\'Application_-_Lycéé_Emile_Peytavin');
         }
-        //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-        //    // Optional name
-        
+                
     //Content //
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Votre commande a été enregistrée';
-        $mail->Body    = $bodyMessageHTML;
+        $mail->Subject = $_SESSION['Post-Mail']['titreMail'] . ' # Restorant d\'Application - Lycéé Emile Peytavin';
+        $mail->Body    = include'mail.php';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();

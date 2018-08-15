@@ -51,6 +51,7 @@
                         	<h1>Visioner le mail</h1>
                         	<hr>
                         	<center>
+                                <h3><?php echo $_SESSION['Post-Mail']['titreMail'] . ' // Restorant d\'Application - Lycéé Emile Peytavin' ?></h3>
                             	<div id="mailSimulation" >
                             		<?php include'mail.php' ?>
                             	</div>

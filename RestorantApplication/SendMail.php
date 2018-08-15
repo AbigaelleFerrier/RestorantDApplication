@@ -48,6 +48,7 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
 
                                             <div class="col-9" style="margin-bottom: 2em;">
                                                 <!-- EDITEUR VISUEL -->
+                                                <input class="btn" style="width: 100%;" type="text" name="titreMail" placeholder="Titre du Mail" required>
                                                 <wysiwyg>
                                                     <h1>Un titre</h1>
                                                     <p>Et du Texte</p>

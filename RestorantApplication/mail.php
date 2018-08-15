@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
     <title>Template mailing Alsacreations</title>
+    <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
@@ -77,7 +78,7 @@
                                                 <td class="w580" width="1000" valign="middle" align="left" style="background-image: url('https://images.unsplash.com/photo-1516930828473-2d3b2a2e36fe?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=aa872492a9f3ffa83f1787f629338495&amp;auto=format&amp;fit=crop&amp;w=2134&amp;q=80'); background-position: center; background-repeat: no-repeat; background-size: cover;  ">
                                                     <div id="logo" class="pagetoplogo-content" style="background: rgba(64, 150, 238, 0.68); padding : 20px">
                                                         <h1 style="text-align: center; color: #fff; text-align: center; font-family: 'Abel', sans-serif;">Restaurant d'Application</h1>
-                                                        <h2 style="text-align: center; color: #fff; text-align: center; font-family: 'Abel', sans-serif;">Lycée Emile Peytavin</h2>                        
+                                                        <h2 style="text-align: center; color: #fff; text-align: center; font-family: 'Abel', sans-serif;">Lyc&#233;e Emile Peytavin</h2>                        
                                                     </div>
                                                 </td> 
                                                 
@@ -121,7 +122,7 @@
                                             
                                             <tr>
                                                 <td class="w275" width="1000" valign="top" style="padding: 50px">
-                                                    <?php echo "<p>" . $_POST['mce_0'] . "</p>" ; ?>
+                                                    <?php echo "<p>" . $_SESSION['Post-Mail']['mce_0'] . "</p>" ; ?>
                                                 </td>
                                             </tr>
 
@@ -220,7 +221,7 @@
                                                 <td class="w640" width="1080" height="60" style="padding: 20px 50px;color: #fff !important;background: #0056b3;text-align:  center;align-content: center;">
                                                     <?php include'css/footer.php' ?>
                                                     <p>
-                                                        Se désinscrire : <a href="mailto:cirill@asheart.fr?subject=EmilePeytavin_-_Me_desinscrire">cirill@asheart.fr</a>
+                                                        Se d&#233;sinscrire : <a href="mailto:cirill@asheart.fr?subject=EmilePeytavin_-_Me_desinscrire">cirill@asheart.fr</a>
                                                     </p>
                                                 </td>
                                             </tr>
@@ -235,7 +236,15 @@
                                 <td class="w640" width="1080" height="50"></td>
                                 </tr>
                             </table>
+                            
+                                <p style="margin-bottom: 25px; color: #aaa" >Cr&#233;ation : <a style="color: #aaa" href="www.asheart.fr">Asheart Communication</a></p>
+                            
+                            
+                           
+
                         </td>
+
+
                     </tr>
 
                     <!--  separateur horizontal de 15px de haut -->
@@ -245,6 +254,7 @@
                     </tr>
 
                     
+
                 </tbody>
             </table>
         
