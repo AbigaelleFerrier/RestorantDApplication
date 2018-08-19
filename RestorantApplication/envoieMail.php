@@ -58,8 +58,8 @@ try {
     //Content //
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = $_SESSION['Post-Mail']['titreMail'] . ' # Restorant d\'Application - Lycéé Emile Peytavin';
-        $mail->Body    = include'mail.php';
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $mail->Body    = include 'mail.php';
+        $mail->AltBody = include 'mailTxt.php';
 
     $mail->send();
     echo '<script>alert("Mail envoyé");</script>';

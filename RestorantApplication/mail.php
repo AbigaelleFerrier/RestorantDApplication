@@ -130,14 +130,14 @@
                                                 try{
                                                                 include('coBD.php');
                                                                 $date = $_SESSION['Post-Mail']['dateChoixMail'];
+{
 
                                                                 $req = "SELECT * FROM menu where dateM=?";
                                                                 $traitement = $connect ->prepare($req);
                                                                 $traitement -> bindParam(1, $date);
                                                                 $traitement -> execute();
 
-                                                                if($row = $traitement->fetch()) {
-                                            ?>
+                                                                if($row = $traitement->fetch())                                             ?>
                                                
                                                 <tr>
                                                     <td class="w275" width="1000" valign="top" style="padding: 50px; color: #000; text-align: center;" id="menu">
