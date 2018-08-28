@@ -1,3 +1,3 @@
-# Web
+# Resto d'application
 
-Mon dépot de code web <3
+Projet web

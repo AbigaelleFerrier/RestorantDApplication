@@ -7,20 +7,21 @@ if ( isset($_SESSION['user']) && ($_SESSION['user']=='AdminReserv')) {
     //var_dump($_SESSION);
     //var_dump($_SESSION['Post-Mail']['files']);
 
-
-    header("Content-Type: text/plain");
+    //Load Composer's autoloader
+    require 'vendor/autoload.php';
 
     // Import PHPMailer classes into the global namespace
     // These must be at the top of your script, not inside a function
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
-    //Load Composer's autoloader
-    require 'vendor/autoload.php';
-    include 'inc/contenuMailCommande.inc.php';
 
     $mail = new PHPMailer(true);                            // Passing `true` enables exceptions
     try {
+
+        // FR mode
+        $mail->setLanguage('fr', '/optional/path/to/language/directory/');
+
         // Server settings
             $mail->CharSet      = 'UTF-8';
             $mail->SMTPDebug    = 0;                            // Enable verbose debug output
