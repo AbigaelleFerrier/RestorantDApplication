@@ -1,5 +1,9 @@
 # Resto d'application
 
-Projet web
+Web project :
+  Dev : Wendeline Swart
+  Design : Ferrier Cirill
+  
+FOR : Restorant d'application on Emile Peytavin School (Mende, France)
 
-www.pro.asheart.fr
+https://restorantdapplication.asheart.fr/
